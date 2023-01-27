@@ -1,5 +1,8 @@
 site_name: razikus.tech
 site_author: Adam Raźniewski
+repo_url: https://github.com/razikus/razikus.tech
+repo_name: razikus/razikus.tech
+
 site_description: >-
   Personal blog about various technological stuff. 
 copyright: Copyright &copy; 2023 Adam Raźniewski
@@ -84,3 +87,10 @@ nav:
       - blog/novela.ink.md
   - Contact:
     - contact/index.md
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences

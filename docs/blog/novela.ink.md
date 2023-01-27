@@ -3,6 +3,7 @@ tags:
   - "2023"
   - OpenAI
   - Fun projects
+comments: true
 ---
 
 # novela.ink - AI assistant for creators
@@ -57,6 +58,56 @@ Architecture is pretty simple and preety obvious. Using OpenAI also is very simp
 - OpenAI API - [OpenAI](https://beta.openai.com/docs/introduction)
 
 Of course dockerized and easy to deploy
+
+
+## Some interesting code parts
+
+```py
+    def completeStory(self, forWhat, temperature = 0.3, max_tokens=2048, suffix = None, action = "", n = 1):
+        forWhat = f"Find a {action} continue for:\n" + forWhat
+        req = {
+            "model": self.model,
+            "prompt": forWhat,
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+            "n": n
+        }
+        if suffix:
+            req["suffix"] = suffix
+        completed = self.client.create(**req)
+        return 
+```
+
+With novela you can make few story completions (full of action, funny, etc).
+
+Like you can see - the prompt itself instruct GPT to complete the prompt.
+
+Suffix parameter indicates that result of the prompt should continue as suffix, so completion should fit between prefix and suffix.
+
+
+To generate images from summary:
+
+```py
+class AiSummarizer:
+
+    def __init__(self, api_key):
+        self.api_key = api_key
+        self.model = "text-davinci-003"
+        self.client = openai.Completion()
+
+    def whatIsThatAbout(self, content, max_tokens=256):
+        req = {
+            "model": self.model,
+            "prompt": "Generate a short one sentence summary that could be applicable as DALEE2 input in english that has max 12 words, about this: \n" + content,
+            "max_tokens": max_tokens,
+            "temperature": 0.8,
+            "n": 1
+        }
+        answer = self.client.create(**req)
+        return answer
+```
+
+Like you can see here - I just used GPT-3 to generate me an input for DALEE.
 
 ## Thoughts
 
