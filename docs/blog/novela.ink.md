@@ -6,11 +6,12 @@ tags:
 comments: true
 ---
 
-# website no longer working!
+# novela.ink - AI assistant for creators
+
+website no longer working!
 
 Hosting expires, you can still run it yourself 
 
-# novela.ink - AI assistant for creators
 
 
 ![novela.ink](../assets/logo-3.png)
