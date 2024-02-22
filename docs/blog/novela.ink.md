@@ -6,6 +6,10 @@ tags:
 comments: true
 ---
 
+# website no longer working!
+
+Hosting expires, you can still run it yourself 
+
 # novela.ink - AI assistant for creators
 
 
