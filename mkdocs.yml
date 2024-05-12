@@ -85,6 +85,8 @@ nav:
     - blog/index.md
     - "2023":
       - blog/novela.ink.md
+    - "2024":
+      - blog/Ibt.razikus.tech.md
   - Contact:
     - contact/index.md
 
